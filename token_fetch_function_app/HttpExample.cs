@@ -15,7 +15,7 @@ namespace My.Functions
         public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req, ILogger log) {
             log.LogInformation("C# HTTP trigger function processed a request.");
 
-            string name = req.Query["nick"];
+            string name = req.Query["name"];
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             dynamic data = JsonConvert.DeserializeObject(requestBody);
